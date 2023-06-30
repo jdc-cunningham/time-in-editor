@@ -14,7 +14,7 @@
   "contributes": {
     "commands": [{
       "command": "tutorial.helloWorld",
-      "title": "Hello World"
+      "title": "Tutorial"
     }]
   },
   "scripts": {

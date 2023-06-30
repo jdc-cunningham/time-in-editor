@@ -19,3 +19,13 @@ Damn boiii it's 100F, although inside it's 70 something, AC baby!
 6:04 PM
 
 mf getting distracted come on boy
+
+6:09 PM
+
+okay yeah so now it's working, opens another editor instance, cool
+
+Okay so running the command shows a little toast thing
+
+6:14 PM
+
+Okay I think I'm good to go for developing my own

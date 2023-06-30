@@ -1,0 +1,26 @@
+{
+	"name": "time-in-editor",
+	"description": "Track time editor is active",
+	"version": "0.0.1",
+	"publisher": "jdc-cunningham",
+	"repository": "https://github.com/jdc-cunningham/time-in-editor",
+	"engines": {
+		"vscode": "^1.79.0"
+	},
+	"activationEvents": [
+    
+  ],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.timeInEditor",
+				"title": "Time In Editor"
+			}
+		]
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/vscode": "^1.73.0"
+	}
+}

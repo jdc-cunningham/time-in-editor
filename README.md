@@ -15,3 +15,7 @@ Everytime you type in a panel, it logs a second if a second has elapsed from las
 Have `@vscode/vsce` package installed globally, `vsce package`, then install by right of extension search, install by VSIX option
 
 [Resource](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
+
+### Based on this VS Code extension sample code
+
+[sample code](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-minimal-sample)

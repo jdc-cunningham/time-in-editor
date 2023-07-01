@@ -179,3 +179,5 @@ okay this seems passable, need to add and start using
 9:05 PM
 
 ugh tracked VSIX file still dang it
+
+cool it's active now tracking this repo ha

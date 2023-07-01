@@ -9,39 +9,61 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  let timeInEditor = 0;
+	console.log('"time-in-editor" extension activated');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "time-in-editor" is now active!');
+	const projectFolder = vscode.workspace.workspaceFolders[0]?.name || `project-${time.now()}`;
+	const slugify = (str) => str.split(' ').join('-').toLowerCase(); // no hoisting sad
+	const projectName = slugify(projectFolder);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
+	const timeInEditor = () => {
+		const seconds = context.globalState.get(projectName)?.timeInEditor || 0;
+		return seconds; // format
+	}
+
+	// this is ran by the user with command palette eg. cltr + shift + p
+	// matches package.json definition
 	let disposable = vscode.commands.registerCommand('extension.timeInEditor', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage(`time in editor: ${timeInEditor}`);
+		vscode.window.showInformationMessage(`time in editor: ${timeInEditor()}`);
 	});
 
 	context.subscriptions.push(disposable);
 
-	// https://stackoverflow.com/a/70340951/2710227
-	// workbench.action.focusActiveEditorGroup
-	// workbench.action.focusPanel
-	// let focusDisposable = vscode.commands.registerCommand('workbench.action.focusActiveEditorGroup', (event) => focusFn(event));
 
-	// const focusFn = (focusDisposable) => {
-	// 	focusDisposable.dispose();
+	let tsGroup = [];
 
-	// 	console.log('focus');
-	// }
+	const now = () => Math.trunc(Date.now() / 1000);
 
-	// context.subscriptions.push(focusDisposable);
+	const incrementProjectTime = () => {
+		const prevTime = context.globalState.get(projectName)?.timeInEditor || 0;
 
+		context.globalState.update(projectName, {
+			timeInEditor: prevTime + tsGroup.length
+		});
+
+		tsGroup = [];
+	}
+
+	// this stores a timestamp if a keystroke elapsed a second from last stored event in tsGroup
+	// then after a minute elapses in general the seconds that were logged in that minute are added
+	// to the global state
 	vscode.workspace.onDidChangeTextDocument(event => {
-		console.log('change');
+		const ts = now();
+
+		if (tsGroup.length) {
+			const firstEvent = tsGroup[0];
+			const lastEvent = tsGroup[tsGroup.length - 1];
+
+			if (ts > lastEvent) {
+				if (ts > lastEvent + 60 || lastEvent - firstEvent >= 60) {
+					// store new minute
+					incrementProjectTime();
+				} else {
+					tsGroup.push(ts);
+				}
+			}
+		} else {
+			tsGroup.push(ts);
+		}
 	});
 }
 

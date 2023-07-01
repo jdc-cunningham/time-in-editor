@@ -181,3 +181,7 @@ okay this seems passable, need to add and start using
 ugh tracked VSIX file still dang it
 
 cool it's active now tracking this repo ha
+
+9:08 PM
+
+I'm considering this done for now

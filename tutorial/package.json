@@ -8,8 +8,8 @@
 		"vscode": "^1.79.0"
 	},
 	"activationEvents": [
-    
-  ],
+		"onStartupFinished"
+	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [

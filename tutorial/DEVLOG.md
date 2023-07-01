@@ -164,3 +164,14 @@ storing seconds... hmm
 
 this is working... I'm just going to write a quick second to whatever formatter, test it then get this thing installed
 
+8:35 PM
+
+lol I've written a time formatter before but I still get mixed up a bit with the whole modulus remainder thing and guard clauses
+
+install a package bro
+
+days > hours > minutes > seconds
+
+8:55 PM
+
+okay this seems passable, need to add and start using

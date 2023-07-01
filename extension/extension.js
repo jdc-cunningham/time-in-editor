@@ -64,13 +64,18 @@ function activate(context) {
 
 	const timeInEditor = () => {
 		const seconds = context.globalState.get(projectName)?.timeInEditor || 0;
-		return formatSeconds(seconds); // format
+		return {
+			formatted: formatSeconds(seconds),
+			raw: seconds
+		};
 	}
 
 	// this is ran by the user with command palette eg. cltr + shift + p
 	// matches package.json definition
 	let disposable = vscode.commands.registerCommand('extension.timeInEditor', () => {
-		vscode.window.showInformationMessage(`time in editor: ${timeInEditor()}`);
+		const projectElapsedTime = timeInEditor();
+
+		vscode.window.showInformationMessage(`time in editor: ${projectElapsedTime.formatted} \n | ${projectElapsedTime.raw} seconds`);
 	});
 
 	context.subscriptions.push(disposable);

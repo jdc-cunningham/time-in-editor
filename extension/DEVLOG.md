@@ -185,3 +185,17 @@ cool it's active now tracking this repo ha
 9:08 PM
 
 I'm considering this done for now
+
+9:38 PM
+
+quick mod, I want to know the seconds in case my time formatter isn't right
+
+I tested it but not much
+
+9:44 PM
+
+hmm... line breaks don't seem to work? odd
+
+https://stackoverflow.com/questions/54300025/how-to-newline-in-vscode-window-showinformationmessage
+
+My first thought was to try the `\n` way but didn't work

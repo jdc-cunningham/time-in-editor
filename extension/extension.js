@@ -75,7 +75,7 @@ function activate(context) {
 	let disposable = vscode.commands.registerCommand('extension.timeInEditor', () => {
 		const projectElapsedTime = timeInEditor();
 
-		vscode.window.showInformationMessage(`time in editor: ${projectElapsedTime.formatted} \n | ${projectElapsedTime.raw} seconds`);
+		vscode.window.showInformationMessage(`time in editor: ${projectElapsedTime.formatted} \n | ${projectElapsedTime.raw}s`);
 	});
 
 	context.subscriptions.push(disposable);

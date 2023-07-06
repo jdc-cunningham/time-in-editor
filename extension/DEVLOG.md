@@ -1,3 +1,19 @@
+07/05/2023
+
+11:24 PM
+
+yeah so it turns out this extension sucks
+
+I've been working on a project for a few hours and it says "7 minutes" lol which I've spent most of my time in the terminal I think is the main thing
+
+this only responds to focused windows
+
+I'll put some more time into this
+
+---
+
+06/30/2023
+
 6:16 PM
 
 okay I'm just going to use their minimal code sample as a base

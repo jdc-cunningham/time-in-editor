@@ -1,3 +1,44 @@
+07/07/2023
+
+3:05 PM
+
+so I do want to improve this as it's not accurate
+
+I am somewhat tempted by a timer approach where it checks if something is active (variables) and keeps counting if so
+
+- first event starts timer
+- timer
+  - keeps going
+    - if change variable getting updated regularly
+  - stops
+    - if change variable not updated after some time
+
+something like that
+
+`onDidChangeTerminalState` does not fire for every keystroke just first one
+
+3:09 PM
+
+omg it's right there, `WindowState` if it's focused or not
+
+That's what I wanted in the beginning
+
+3:14 PM
+
+interval is working but the window state stuff is empty huh
+
+3:16 PM
+
+okay this will work, setInterval and focused check
+
+it's not 100% where you should check if changes are happening...
+
+3:20 PM
+
+okay going to see how this does
+
+---
+
 07/05/2023
 
 11:24 PM

@@ -99,6 +99,14 @@ function activate(context) {
 	// then after a minute elapses in general the seconds that were logged in that minute are added
 	// to the global state
 	vscode.workspace.onDidChangeTextDocument(event => {
+		// fires every keystroke
+	});
+
+	vscode.window.onDidChangeTerminalState(event => {
+		// only fires on first keystroke
+	});
+
+	const updateTimeInEditor = () => {
 		const ts = now();
 
 		if (tsGroup.length) {
@@ -116,7 +124,13 @@ function activate(context) {
 		} else {
 			tsGroup.push(ts);
 		}
-	});
+	}
+
+	setInterval(() => {
+		if (vscode.window.state.focused) {
+			updateTimeInEditor();
+		}
+	}, 1000);
 }
 
 // this method is called when your extension is deactivated

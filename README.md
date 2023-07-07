@@ -6,9 +6,9 @@ This just tracks how long the editor was active for.
 
 I know these extensions exists, I wanted to learn how to make my own.
 
-### Uses `vscode.workspace.onDidChangeTextDocument`
+### Uses `vscode.window.state` (focused or not)
 
-Everytime you type in a panel, it logs a second if a second has elapsed from last keystroke. The seconds are added up per folder name then using the command palette (`cmd + shift + p`) show the time elapsed by finding `Time In Editor`.
+This is using `setInterval` every second it checks if the window is focused, if it is, stores a second/adds to total time displayed by calling `Time In Editor` via command palette.
 
 ### To compile
 
